@@ -1,0 +1,22 @@
+version: '3.8'
+
+services:
+  db:
+    image: mysql:latest
+    environment:
+      MYSQL_ROOT_PASSWORD: root            
+      MYSQL_DATABASE: dbmysql              
+      MYSQL_PASSWORD: root                
+    ports:
+      - "5000:3306"  
+
+  freterapido:
+    build: .
+    depends_on:
+      - db
+    ports:
+      - "6379:6379"
+
+
+ 
+                 
